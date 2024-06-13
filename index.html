@@ -24,10 +24,11 @@
 
     // Mostrar notificación
     function mostrarNotificacion() {
-      if (Notification.permission === 'granted') {
+      // if (Notification.permission === 'granted') {
         navigator.serviceWorker.ready.then(registration => {
           registration.showNotification('Hello World');
-        });
+        }
+      // );
       }
     }
 
