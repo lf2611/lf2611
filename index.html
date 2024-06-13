@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple PWA</title>
-  <link rel="manifest" href="/lf2611/manifest.json">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <h1>Simple PWA</h1>
@@ -12,7 +12,7 @@
     // Registro del Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/lf2611/service-worker.js')
+        navigator.serviceWorker.register('service-worker.js')
           .then(registration => {
             console.log('Service Worker registrado con éxito:', registration);
           })
