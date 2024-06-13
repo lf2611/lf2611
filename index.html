@@ -12,7 +12,7 @@
     // Registro del Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sercvice-worker.js')
+        navigator.serviceWorker.register('service-worker.js')
           .then(registration => {
             console.log('Service Worker registrado con éxito:', registration);
           })
@@ -22,13 +22,22 @@
       });
     }
 
+    // Solicitar permiso para las notificaciones
+    if ('Notification' in window && navigator.serviceWorker) {
+      Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+          console.log('Permiso de notificación concedido');
+          mostrarNotificacion();
+        }
+      });
+    }
+
     // Mostrar notificación
     function mostrarNotificacion() {
-      // if (Notification.permission === 'granted') {
+      if (Notification.permission === 'granted') {
         navigator.serviceWorker.ready.then(registration => {
           registration.showNotification('Hello World');
-        }
-      // );
+        });
       }
     }
 
